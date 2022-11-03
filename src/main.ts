@@ -1,5 +1,6 @@
-import { enableProdMode } from '@angular/core';
+import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
+import { AppRoutingModule } from './app/app-routing.module';
 import { AppComponent } from './app/app.component';
 import { AnalyticsService } from './app/shared/analytics.service';
 // import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -13,6 +14,7 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {providers: [
   // AnalyticsService
+  importProvidersFrom(AppRoutingModule)
 ]});
 
 // platformBrowserDynamic().bootstrapModule(AppModule)
